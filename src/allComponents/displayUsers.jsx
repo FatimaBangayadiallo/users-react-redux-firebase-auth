@@ -1,10 +1,17 @@
 import React from "react";
 import User from "./user";
-const DisplayUsers = () => {
+import { Container, Row } from "react-bootstrap";
+const DisplayUsers = (props) => {
   return (
     <>
-      je suis DisplayUsers
-      <User />
+      <Container>
+        <Row>
+          <h1> Display users</h1>
+          {props.data.map((item, index) => {
+            return <User itemInfo={item} key={index} />;
+          })}
+        </Row>
+      </Container>
     </>
   );
 };
