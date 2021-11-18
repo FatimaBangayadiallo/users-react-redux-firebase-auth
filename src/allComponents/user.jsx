@@ -5,11 +5,10 @@ const User = (props) => {
   return (
     <>
       {/* premiere partie de la carte */}
-      <Col>
+      <Col md="3">
         <Card
           style={{
-            width: "12rem",
-            marginTop: "2rem",
+            marginBottom: "2rem",
             backgroundColor: "lightslategrey",
           }}
         >

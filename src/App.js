@@ -16,24 +16,22 @@ class App extends React.Component {
           email: "Bah@gmail.com",
           gen: 2,
         },
-        {
-          name: "Sow",
-          email: "Sow@gmail.com",
-          gen: 12,
-        },
+
         {
           name: "diallo",
           email: "diallo@gmail.com",
           gen: 19,
         },
-        {
-          name: "barry",
-          email: "barry@gmail.com",
-          gen: 18,
-        },
       ],
     };
   }
+  // all the actions-------------------------
+  // --------------------add new user-----------------------
+  AddNewUser = (newUser) => {
+    this.setState({
+      authUsers: [...this.state.authUsers, newUser],
+    });
+  };
   render() {
     return (
       <>
@@ -42,8 +40,8 @@ class App extends React.Component {
           fluid
         >
           <Row>
-            <Col>
-              <Add />
+            <Col md="4">
+              <Add AddNewUser={this.AddNewUser} />
             </Col>
             <Col>
               <DisplayUsers data={this.state.authUsers} />
