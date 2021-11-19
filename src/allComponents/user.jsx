@@ -1,8 +1,15 @@
 import { logRoles } from "@testing-library/dom";
-import React from "react";
-import { Card, Button, Col } from "react-bootstrap";
+import React, { useState } from "react";
+import { Card, Button, Col, Modal } from "react-bootstrap";
+import Edit from "./editUser";
 
 const User = (props) => {
+  // ---------------------------------------------------------the define the state------------------
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  // ---------------------------------------
   // ------------------the handelete event handler------------------------------
   const handleDelete = (e) => {
     e.preventDefault();
@@ -11,6 +18,21 @@ const User = (props) => {
   };
   return (
     <>
+      {/* --------------------------le modal---------------------------------------------------------------------------------- */}
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Edit User</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Edit
+            itemInfo={props.itemInfo}
+            editUser={props.editUser}
+            closeModal={handleClose}
+          />
+        </Modal.Body>
+      </Modal>
+
+      {/* ----------------------------------------end/of the modal---------------------------------------------------- */}
       {/* premiere partie de la carte */}
       <Col md="3">
         <Card
@@ -29,7 +51,7 @@ const User = (props) => {
               <p>email: {props.itemInfo.email}</p>
               <p>gen:{props.itemInfo.gen}</p>
             </Card.Text>
-            <Button variant="primary" size="sm">
+            <Button variant="primary" size="sm" onClick={handleShow}>
               edit
             </Button>
             <Button

@@ -44,11 +44,22 @@ class App extends React.Component {
       authUsers: undeletedUsersAuht,
     });
   };
+  // ----------------------------------------------the methode to update a particular user---------------------
+  editUser = (id, updatedUser) => {
+    this.setState({
+      authUsers: this.state.authUsers.map((item) =>
+        item.id === id ? updatedUser : item
+      ),
+    });
+  };
   render() {
     return (
       <>
+        <h1 style={{ color: "lightcoral", textDecoration: "underline" }}>
+          the react redux firebase firestore authentification project
+        </h1>
         <Container
-          style={{ backgroundColor: "lightblue", marginTop: "2rem" }}
+          style={{ backgroundColor: "lightblue", marginTop: "4rem" }}
           fluid
         >
           <Row>
@@ -59,6 +70,7 @@ class App extends React.Component {
               <DisplayUsers
                 data={this.state.authUsers}
                 deleteUser={this.deleteUser}
+                editUser={this.editUser}
               />
             </Col>
           </Row>

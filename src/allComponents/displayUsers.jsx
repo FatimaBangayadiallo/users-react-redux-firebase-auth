@@ -13,6 +13,7 @@ const DisplayUsers = (props) => {
                 itemInfo={item}
                 key={item.id}
                 deleteUser={props.deleteUser}
+                editUser={props.editUser}
               />
             );
           })}
