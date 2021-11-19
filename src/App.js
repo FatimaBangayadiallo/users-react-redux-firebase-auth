@@ -15,12 +15,14 @@ class App extends React.Component {
           name: "Bah",
           email: "Bah@gmail.com",
           gen: 2,
+          id: "458734732sgdfdjk132423",
         },
 
         {
           name: "diallo",
           email: "diallo@gmail.com",
           gen: 19,
+          id: "12233shghdfjksdjsjas098",
         },
       ],
     };
@@ -28,8 +30,18 @@ class App extends React.Component {
   // all the actions-------------------------
   // --------------------add new user-----------------------
   AddNewUser = (newUser) => {
+    newUser.id = Math.random().toString();
     this.setState({
       authUsers: [...this.state.authUsers, newUser],
+    });
+  };
+  // ----------------------------------the methode to delete a particular item---------------------
+  deleteUser = (id) => {
+    let undeletedUsersAuht = this.state.authUsers.filter(
+      (item) => item.id !== id
+    );
+    this.setState({
+      authUsers: undeletedUsersAuht,
     });
   };
   render() {
@@ -44,7 +56,10 @@ class App extends React.Component {
               <Add AddNewUser={this.AddNewUser} />
             </Col>
             <Col>
-              <DisplayUsers data={this.state.authUsers} />
+              <DisplayUsers
+                data={this.state.authUsers}
+                deleteUser={this.deleteUser}
+              />
             </Col>
           </Row>
         </Container>

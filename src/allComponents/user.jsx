@@ -1,7 +1,14 @@
+import { logRoles } from "@testing-library/dom";
 import React from "react";
 import { Card, Button, Col } from "react-bootstrap";
 
 const User = (props) => {
+  // ------------------the handelete event handler------------------------------
+  const handleDelete = (e) => {
+    e.preventDefault();
+    props.deleteUser(props.itemInfo.id);
+    console.log("item deleted");
+  };
   return (
     <>
       {/* premiere partie de la carte */}
@@ -25,7 +32,12 @@ const User = (props) => {
             <Button variant="primary" size="sm">
               edit
             </Button>
-            <Button variant="danger" size="sm" style={{ marginLeft: "2rem" }}>
+            <Button
+              variant="danger"
+              size="sm"
+              style={{ marginLeft: "2rem" }}
+              onClick={handleDelete}
+            >
               delete
             </Button>
           </Card.Body>

@@ -7,8 +7,14 @@ const DisplayUsers = (props) => {
       <Container>
         <Row>
           <h1> Display users</h1>
-          {props.data.map((item, index) => {
-            return <User itemInfo={item} key={index} />;
+          {props.data.map((item) => {
+            return (
+              <User
+                itemInfo={item}
+                key={item.id}
+                deleteUser={props.deleteUser}
+              />
+            );
           })}
         </Row>
       </Container>
