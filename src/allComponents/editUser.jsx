@@ -1,5 +1,7 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
+import { connect } from "react-redux";
+import { editUser } from "../actions/action";
 class Edit extends React.Component {
   constructor(props) {
     super(props);
@@ -77,4 +79,7 @@ class Edit extends React.Component {
     );
   }
 }
-export default Edit;
+const mapDispatchToProps = {
+  editUser,
+};
+export default connect(null, mapDispatchToProps)(Edit);

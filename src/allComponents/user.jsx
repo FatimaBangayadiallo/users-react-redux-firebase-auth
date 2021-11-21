@@ -2,6 +2,8 @@ import { logRoles } from "@testing-library/dom";
 import React, { useState } from "react";
 import { Card, Button, Col, Modal } from "react-bootstrap";
 import Edit from "./editUser";
+import { connect } from "react-redux";
+import { deleteUser } from "../actions/action";
 
 const User = (props) => {
   // ---------------------------------------------------------the define the state------------------
@@ -69,4 +71,7 @@ const User = (props) => {
     </>
   );
 };
-export default User;
+const mapDispatchToProps = {
+  deleteUser,
+};
+export default connect(null, mapDispatchToProps)(User);

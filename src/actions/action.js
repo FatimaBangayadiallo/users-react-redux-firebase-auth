@@ -7,3 +7,18 @@ export const AddNewUser = (newUser) => {
     payload: newUser,
   };
 };
+// action to update a particular user inside the users array;
+
+export const editUser = (id, updatedUser) => {
+  return {
+    type: "EDIT_USER",
+    payload: { id, updatedUser },
+  };
+};
+// action to delete a particular user---------------
+export const deleteUser = (id) => {
+  return {
+    type: "DELETE_USER",
+    payload: id,
+  };
+};

@@ -44,13 +44,13 @@ class App extends React.Component {
     });
   };
   // ----------------------------------------------the methode to update a particular user---------------------
-  editUser = (id, updatedUser) => {
-    this.setState({
-      authUsers: this.state.authUsers.map((item) =>
-        item.id === id ? updatedUser : item
-      ),
-    });
-  };
+  // editUser = (id, updatedUser) => {
+  //   this.setState({
+  //     authUsers: this.state.authUsers.map((item) =>
+  //       item.id === id ? updatedUser : item
+  //     ),
+  //   });
+  // };
   render() {
     return (
       <>
