@@ -29,12 +29,12 @@ class App extends React.Component {
   }
   // all the actions-------------------------
   // --------------------add new user-----------------------
-  AddNewUser = (newUser) => {
-    newUser.id = Math.random().toString();
-    this.setState({
-      authUsers: [...this.state.authUsers, newUser],
-    });
-  };
+  // AddNewUser = (newUser) => {
+  //   newUser.id = Math.random().toString();
+  //   this.setState({
+  //     authUsers: [...this.state.authUsers, newUser],
+  //   });
+  // };
   // ----------------------------------the methode to delete a particular item---------------------
   deleteUser = (id) => {
     let undeletedUsersAuht = this.state.authUsers.filter(
