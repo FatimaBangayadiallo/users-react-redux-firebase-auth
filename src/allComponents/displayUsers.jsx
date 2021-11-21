@@ -1,13 +1,14 @@
 import React from "react";
 import User from "./user";
 import { Container, Row } from "react-bootstrap";
+import { connect } from "react-redux";
 const DisplayUsers = (props) => {
   return (
     <>
       <Container>
         <Row>
           <h1> Display users</h1>
-          {props.data.map((item) => {
+          {props.authUsers.map((item) => {
             return (
               <User
                 itemInfo={item}
@@ -22,4 +23,9 @@ const DisplayUsers = (props) => {
     </>
   );
 };
-export default DisplayUsers;
+const mapStateToProps = (state) => {
+  return {
+    authUsers: state.authUsers,
+  };
+};
+export default connect(mapStateToProps)(DisplayUsers);
