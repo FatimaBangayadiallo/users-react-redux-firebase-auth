@@ -4,7 +4,8 @@ import DisplayUsers from "./allComponents/displayUsers";
 import { Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Add from "./allComponents/addUser";
-
+import { getAllAuthUsers } from "./actions/action";
+import { connect } from "react-redux";
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -35,14 +36,14 @@ class App extends React.Component {
   //   });
   // };
   // ----------------------------------the methode to delete a particular item---------------------
-  deleteUser = (id) => {
-    let undeletedUsersAuht = this.state.authUsers.filter(
-      (item) => item.id !== id
-    );
-    this.setState({
-      authUsers: undeletedUsersAuht,
-    });
-  };
+  // deleteUser = (id) => {
+  //   let undeletedUsersAuht = this.state.authUsers.filter(
+  //     (item) => item.id !== id
+  //   );
+  //   this.setState({
+  //     authUsers: undeletedUsersAuht,
+  //   });
+  // };
   // ----------------------------------------------the methode to update a particular user---------------------
   // editUser = (id, updatedUser) => {
   //   this.setState({
@@ -51,6 +52,9 @@ class App extends React.Component {
   //     ),
   //   });
   // };
+  componentDidMount() {
+    this.props.getAllAuthUsers();
+  }
   render() {
     return (
       <>
@@ -78,5 +82,8 @@ class App extends React.Component {
     );
   }
 }
+const mapDispatchToProps = {
+  getAllAuthUsers,
+};
 
-export default App;
+export default connect(null, mapDispatchToProps)(App);

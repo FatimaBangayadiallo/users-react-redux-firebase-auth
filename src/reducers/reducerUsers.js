@@ -25,6 +25,9 @@ const reducer = (state = initialState, action) => {
       (item) => item.id !== action.payload
     );
     return { ...state, authUsers: undeletedUsers };
+  }
+  if (action.type === "SET_ALL_USERS") {
+    return { ...state, authUsers: action.payload };
   } else return state;
 };
 export default reducer;
