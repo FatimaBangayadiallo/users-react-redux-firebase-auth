@@ -1,14 +1,16 @@
 import "./App.css";
 import React from "react";
 import DisplayUsers from "./allComponents/displayUsers";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Add from "./allComponents/addUser";
 import { getAllAuthUsers } from "./actions/action";
 import { connect } from "react-redux";
+import { logOut } from "./store/authAction";
 class App extends React.Component {
   constructor(props) {
     super(props);
+    // this.logOut = this.logOut.bind(this);
     this.state = {
       authUsers: [
         {
@@ -61,6 +63,10 @@ class App extends React.Component {
         <h1 style={{ color: "lightcoral", textDecoration: "underline" }}>
           the react redux firebase firestore authentification project
         </h1>
+        <Button syle={{ marginTop: "5rem" }} onClick={this.props.logOut}>
+          log out
+        </Button>
+
         <Container
           style={{ backgroundColor: "lightblue", marginTop: "4rem" }}
           fluid
@@ -84,6 +90,7 @@ class App extends React.Component {
 }
 const mapDispatchToProps = {
   getAllAuthUsers,
+  logOut,
 };
 
 export default connect(null, mapDispatchToProps)(App);

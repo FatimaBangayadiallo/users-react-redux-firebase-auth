@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+// import App from "./App";
+import Router from "./Router";
 import reportWebVitals from "./reportWebVitals";
 import store from "./store/store";
 import { Provider } from "react-redux";
@@ -9,7 +10,8 @@ import { Provider } from "react-redux";
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
-      <App />
+      {/* <App /> */}
+      <Router />
     </React.StrictMode>
   </Provider>,
   document.getElementById("root")

@@ -25,7 +25,7 @@ const DisplayUsers = (props) => {
 };
 const mapStateToProps = (state) => {
   return {
-    authUsers: state.authUsers,
+    authUsers: state.authUsersState.authUsers,
   };
 };
 export default connect(mapStateToProps)(DisplayUsers);

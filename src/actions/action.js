@@ -8,10 +8,10 @@ export const AddNewUser = (newUser) => {
         timestamp: getFirestore().FieldValue.serverTimestamp(),
       })
       .then(() => {
-        // dispatch({
-        //   type: "ADD_USER",
-        //   payload: newUser,
-        // });
+        dispatch({
+          type: "ADD_USER",
+          payload: newUser,
+        });
       });
   };
   // newUser.id = Math.random().toString(36).slice(2);
@@ -28,7 +28,7 @@ export const editUser = (id, updatedUser) => {
     getFirestore()
       .collection("authUsers")
       .doc(id)
-      .set(updatedUser)
+      .update(updatedUser)
       .then(() => {});
   };
   // return {
@@ -55,7 +55,7 @@ export const getAllAuthUsers = () => {
   return (dispatch, state, { getFirestore }) => {
     getFirestore()
       .collection("authUsers")
-      .orderBy("timestamp", "desc")
+      .orderBy("timestamp", "asc")
       .onSnapshot(
         (Snapshot) => {
           let authUsers = [];
